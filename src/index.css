@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chitti's Pindi Jinnu Business - Brutalist Minimal Design System */
+
+@layer base {
+  :root {
+    /* Core backgrounds - off-white brutalist */
+    --background: 40 20% 98%;
+    --foreground: 220 20% 10%;
+
+    /* Card surfaces */
+    --card: 40 15% 96%;
+    --card-foreground: 220 20% 10%;
+
+    /* Popover */
+    --popover: 40 15% 96%;
+    --popover-foreground: 220 20% 10%;
+
+    /* Primary - Deep Income Green */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - muted surface */
+    --secondary: 40 10% 92%;
+    --secondary-foreground: 220 20% 15%;
+
+    /* Muted text and surfaces */
+    --muted: 40 10% 90%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent - subtle highlight */
+    --accent: 40 15% 94%;
+    --accent-foreground: 220 20% 10%;
+
+    /* Destructive - Strong Expense Red */
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Income Green */
+    --income: 142 76% 36%;
+    --income-foreground: 0 0% 100%;
+
+    /* Expense Red */
+    --expense: 0 84% 50%;
+    --expense-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 220 10% 85%;
+    --input: 220 10% 85%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar (not used but keeping for compatibility) */
+    --sidebar-background: 40 20% 98%;
+    --sidebar-foreground: 220 20% 10%;
+    --sidebar-primary: 142 76% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 15% 94%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 10% 85%;
+    --sidebar-ring: 142 76% 36%;
+  }
+
+  .dark {
+    /* Dark mode - near-black backgrounds */
+    --background: 220 20% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 18% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 18% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    /* Income green stays vibrant */
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 220 15% 16%;
+    --accent-foreground: 40 20% 95%;
+
+    /* Expense red stays vibrant */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --income: 142 70% 45%;
+    --income-foreground: 0 0% 100%;
+
+    --expense: 0 75% 55%;
+    --expense-foreground: 0 0% 100%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 142 70% 45%;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 16%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 142 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  /* Brutalist typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Animated number counter */
+  .animate-number {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  /* Income text color */
+  .text-income {
+    color: hsl(var(--income));
+  }
+
+  /* Expense text color */
+  .text-expense {
+    color: hsl(var(--expense));
+  }
+
+  /* Income background */
+  .bg-income {
+    background-color: hsl(var(--income));
+  }
+
+  /* Expense background */
+  .bg-expense {
+    background-color: hsl(var(--expense));
+  }
+
+  /* PIN input styling */
+  .pin-input {
+    @apply w-14 h-16 text-center text-3xl font-bold border-2 border-border rounded-lg bg-card focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all;
+  }
+
+  /* Bottom nav item */
+  .nav-item {
+    @apply flex flex-col items-center justify-center gap-1 py-2 px-4 text-muted-foreground transition-colors;
+  }
+
+  .nav-item.active {
+    @apply text-primary;
+  }
+
+  /* Stats tab */
+  .stats-tab {
+    @apply px-4 py-2 text-sm font-semibold rounded-lg transition-all text-muted-foreground;
+  }
+
+  .stats-tab.active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* Chart bar */
+  .chart-bar {
+    @apply transition-all duration-500 ease-out rounded-t;
+  }
+
+  /* Brutalist button */
+  .btn-brutalist {
+    @apply font-bold py-4 px-6 rounded-lg transition-all active:scale-95;
+  }
+
+  .btn-income {
+    @apply bg-income text-income-foreground hover:opacity-90;
+  }
+
+  .btn-expense {
+    @apply bg-expense text-expense-foreground hover:opacity-90;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Safe area for notched phones */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
